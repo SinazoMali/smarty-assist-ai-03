@@ -144,7 +144,7 @@ If there is insufficient information to provide a reliable response, the applica
 
 ## Team Members
 
-**Author:** [Your Name]
+**Author:** Sinazo Mali
 
 **Team Members:**
 
