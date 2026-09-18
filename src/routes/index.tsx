@@ -1,24 +1,90 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { BotMessageSquare, CalendarCheck, Newspaper, NotebookPen } from "lucide-react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { AppLayout, Disclaimer } from "@/components/AppLayout";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Dashboard | AI Workplace Productivity Assistant" },
+      {
+        name: "description",
+        content:
+          "Summarize meetings, plan your tasks, digest articles and chat with an AI workplace assistant.",
+      },
+      { property: "og:title", content: "AI Workplace Productivity Assistant" },
+      {
+        property: "og:description",
+        content:
+          "Summarize meetings, plan your tasks, digest articles and chat with an AI workplace assistant.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Dashboard,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const TOOLS = [
+  {
+    to: "/meetings",
+    icon: NotebookPen,
+    title: "Meeting Summarizer",
+    text: "Turn raw meeting notes into a summary, key points, decisions, action items and deadlines.",
+  },
+  {
+    to: "/planner",
+    icon: CalendarCheck,
+    title: "Task Planner",
+    text: "Share your tasks, deadlines and available time to get a prioritised daily or weekly plan.",
+  },
+  {
+    to: "/research",
+    icon: Newspaper,
+    title: "Article & Topic Summarizer",
+    text: "Paste an article, a link or a topic and get insights, key points and recommendations.",
+  },
+  {
+    to: "/chat",
+    icon: BotMessageSquare,
+    title: "AI Chat",
+    text: "Ask anything about planning, writing, research or day-to-day workplace problems.",
+  },
+] as const;
+
+function Dashboard() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+    <AppLayout
+      title="Dashboard"
+      description="Your AI workspace for meetings, planning and research"
     >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+      <section className="rounded-2xl bg-primary p-6 text-primary-foreground shadow-sm sm:p-8">
+        <h2 className="text-xl font-semibold sm:text-2xl">Get more done, with less admin</h2>
+        <p className="mt-2 max-w-2xl text-sm text-primary-foreground/80">
+          Every summary, plan and answer here is generated from what you type — nothing is
+          pre-written. Your input stays in this session only and is never stored.
+        </p>
+      </section>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        {TOOLS.map(({ to, icon: Icon, title, text }) => (
+          <Link
+            key={to}
+            to={to}
+            className="group rounded-2xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md"
+          >
+            <div className="grid size-10 place-items-center rounded-xl bg-accent text-accent-foreground">
+              <Icon className="size-5" />
+            </div>
+            <h3 className="mt-4 text-sm font-semibold group-hover:text-primary">{title}</h3>
+            <p className="mt-1.5 text-sm text-muted-foreground">{text}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-sm">
+        <Disclaimer />
+      </div>
+    </AppLayout>
   );
 }
