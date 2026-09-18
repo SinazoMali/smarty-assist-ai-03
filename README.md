@@ -1,200 +1,162 @@
-# AI Workplace Ally
+# AI Workplace Productivity Assistant
 
-Build a modern, responsive SaaS web app called **AI Workplace Productivity Assistant**.
+## Project Overview
 
+**AI Workplace Productivity Assistant** is a modern, responsive SaaS-style web application designed to help professionals improve workplace productivity using artificial intelligence.
 
+The application provides AI-powered tools for summarizing meeting notes and articles, extracting important information, planning tasks, generating personalized schedules, and interacting with an AI workplace chatbot.
 
-### Core Requirement
+A core requirement of the application is that **responses are dynamically AI-generated based on the user's actual input**. The application does not rely on hard-coded or generic responses.
 
+## Features Implemented
 
+### Meeting Notes Summarizer
 
-**ALL user-facing answers, summaries, insights, recommendations, task plans, and chatbot responses MUST be dynamically AI-generated.**
+* Summarizes lengthy meeting notes using AI.
+* Extracts key discussion points.
+* Identifies action items.
+* Identifies decisions.
+* Identifies deadlines.
+* Allows AI-generated results to be edited.
 
+### AI Task Planner
 
+* Accepts user tasks, priorities, deadlines, and available time.
+* Generates personalized daily or weekly schedules.
+* Uses AI to prioritize tasks based on the provided information.
+* Allows users to edit the generated schedule.
 
-Do NOT use hard-coded, placeholder, mocked, predefined, or generic responses. The AI must analyze the user's actual input and generate a contextual response.
+### Article & Topic Summarizer
 
+* Accepts topics, article content, or URLs.
+* Generates AI-powered summaries.
+* Provides key insights and important points.
+* Generates practical recommendations.
+* Provides relevant source or platform links when available.
 
+### AI Workplace Chatbot
 
-### Features
+* Interactive conversational AI assistant.
+* Responds dynamically to workplace and productivity-related prompts.
+* Uses the user's actual prompt and conversation context.
+* Provides contextual AI-generated responses.
+* Includes suggested prompts for easier interaction.
 
+### User Interface
 
-
-**1. Meeting Notes Summarizer**
-
-
-
-* User enters or pastes meeting notes.
-
-* AI analyzes the actual notes and generates:
-
-
-
-  * Concise summary
-
-  * Key discussion points
-
-  * Action items
-
-  * Decisions
-
-  * Deadlines
-
-* AI output must be editable.
-
-
-
-**2. AI Task Planner**
-
-
-
-* User enters their actual tasks, priorities, deadlines, and available time.
-
-* AI analyzes the input and creates a personalized daily or weekly schedule.
-
-* AI prioritizes tasks based on urgency, importance, deadlines, and workload.
-
-* Generated plan must be editable.
-
-
-
-**3. Article & Topic Summarizer**
-
-
-
-* User can enter a topic, article text, or URL.
-
-* AI analyzes the provided content/input and generates:
-
-
-
-  * Summary
-
-  * Key insights
-
-  * Important points
-
-  * Practical recommendations
-
-  * Relevant source/platform links when available
-
-* Do not display generic summaries unrelated to the user's input.
-
-
-
-**4. AI Workplace Chatbot**
-
-
-
-* Provide a conversational AI assistant.
-
-* Users can ask workplace, productivity, planning, writing, summarization, or research questions.
-
-* Every response must be dynamically generated based on the user's prompt and conversation context.
-
-* Include useful suggested prompts, but chatbot answers must never be hard-coded.
-
-
-
-### UI/UX
-
-
-
-* Modern professional SaaS dashboard.
-
-* Light grey background with clean white cards.
-
-* Responsive desktop, tablet, and mobile design.
-
-* Sidebar navigation:
-
-
-
-  * Dashboard
-
-  * Meeting Summarizer
-
-  * Task Planner
-
-  * Article & Topic Summarizer
-
-  * AI Chat
-
-* Clear input areas, buttons, cards, tabs, loading states, and empty states.
-
-* AI-generated outputs should be clearly separated from user input.
-
-* Allow users to edit AI-generated results.
-
-
-
-### AI Behavior
-
-
-
-* Always analyze the user's actual input before responding.
-
-* Provide specific, contextual, useful answers rather than generic content.
-
-* If the user's input is insufficient, ask a relevant clarification question instead of inventing information.
-
-* Show an appropriate loading state while AI is generating a response.
-
-* Handle AI errors gracefully.
-
-
+* Modern SaaS dashboard design.
+* Responsive desktop, tablet, and mobile layouts.
+* Light grey and white professional color scheme.
+* Sidebar navigation.
+* Clean cards, forms, buttons, and input areas.
+* Loading and empty states.
+* Editable AI-generated outputs.
 
 ### Responsible AI
 
+The application includes a responsible AI disclaimer informing users that AI-generated information may contain errors or omissions and should be reviewed before being used for important decisions.
 
+## Technologies and Tools Used
 
-Display a disclaimer:
+* **Lovable** – Application development and UI generation
+* **React** – Frontend application framework
+* **TypeScript** – Application development
+* **Tailwind CSS** – Responsive styling and UI design
+* **AI API/LLM** – Dynamic generation of summaries, insights, recommendations, schedules, and chatbot responses
+* **Git/GitHub** – Version control and project management
+* **Markdown** – Project documentation
 
+## Setup Instructions
 
+### 1. Clone the Repository
 
-"AI-generated content may contain errors or omissions. Review important information before using it for workplace, business, legal, financial, or other significant decisions."
+```bash
+git clone <repository-url>
+```
 
+### 2. Open the Project
 
+```bash
+cd ai-workplace-productivity-assistant
+```
 
-### Technical Scope
+### 3. Install Dependencies
 
+```bash
+npm install
+```
 
+### 4. Configure AI Integration
 
-* Frontend/UI focused.
+Configure the required AI API credentials according to the AI provider being used.
 
-* No backend database.
+Store API credentials securely in environment variables and **do not expose API keys directly in frontend source code**.
 
-* No authentication.
+Example:
 
-* Do not permanently store user data.
+```env
+VITE_AI_API_KEY=your_api_key_here
+```
 
-* Use temporary in-session state only.
+### 5. Start the Development Server
 
-* Keep the implementation simple and suitable for a Lovable Free account with limited credits.
-
-* **Prioritize real AI-generated functionality over mock data, static examples, or decorative features.**
-
-*
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://smarty-assist-ai-03.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/bf611d24-e999-448e-b0d0-55e2c29e8f59).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+Open the local development URL provided by the application.
+
+### 6. Build for Production
+
+```bash
+npm run build
+```
+
+## Data & Privacy
+
+This project is designed as a frontend-focused application.
+
+* No database is required.
+* No authentication is required.
+* User information is not permanently stored.
+* Data is intended to remain temporary within the current session.
+* Users should avoid entering confidential or sensitive workplace information unless the configured AI provider and deployment environment are approved for such data.
+
+## AI Response Requirement
+
+All major application outputs must be **dynamically generated by AI**.
+
+The application must not use:
+
+* Hard-coded AI responses
+* Fake chatbot conversations
+* Static summaries
+* Generic recommendations presented as personalized results
+* Predefined task plans presented as AI-generated results
+
+The AI should analyze the user's actual input and produce contextual results.
+
+If there is insufficient information to provide a reliable response, the application should ask the user for clarification rather than inventing information.
+
+## Responsible AI Disclaimer
+
+> AI-generated content may contain errors or omissions. Review important information before using it for workplace, business, legal, financial, or other significant decisions.
+
+## Team Members
+
+**Author:** [Your Name]
+
+**Team Members:**
+
+* [Team Member 1]
+* [Team Member 2]
+* [Team Member 3]
+
+*If this is an individual project, list only the author.*
+
+## Author
+
+**[Your Name]**
+
+AI Workplace Productivity Assistant
+Built with AI-assisted development using Lovable.
